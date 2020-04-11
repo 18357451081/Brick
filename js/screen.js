@@ -3,7 +3,7 @@ var screen = {
     width: 400,
     x: 0,
     y: 0,
-    fps:90,
+    fps:60,
     clearRect:function(){
         ctx.clearRect(screen.x, screen.y, canvas.width, canvas.height)
     } 

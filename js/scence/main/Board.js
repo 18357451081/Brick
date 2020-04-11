@@ -7,7 +7,7 @@ class Board {
         this.width = 96
         this.height = 1
         this.y = screen.height * 6 / 7
-        this.x = screen.width / 2 - this.width / 2
+        this.x = screen.width / 2 - this.width / 2 + 10
     }
     moveLeft () {
         if (this.x > screen.x) {

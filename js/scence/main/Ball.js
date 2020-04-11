@@ -6,10 +6,10 @@ class Ball{
         this.onRightMove = false
         this.speedX = 3
         this.speedY =-3
-        this.x = screen.width / 2
+        this.x = screen.width * 3 / 4
         this.y = screen.height / 5
         this.height = 10
-        this.width =10
+        this.width = 10
     }
     move() {
         this.x += this.speedX

@@ -25,6 +25,9 @@ var __main = function(){
         block:'img.block.png',
     }
     var fpsRange = document.getElementById('range')
+
+    var rest = document.getElementById('rest')
+
     fpsRange.width = screen.width
     var board = new Board()
     var ball = new Ball()
@@ -78,7 +81,7 @@ var __main = function(){
             }
         }
     }
-
+    
     game.draw = function(){
         board.draw()
         ball.draw()
@@ -116,7 +119,21 @@ var __main = function(){
             }
         }
     })
-    
+    rest.onclick = function(){
+        game.over = false
+            game.pause = false
+            ball.y = screen.height / 5
+            game.draw = function(){
+                board.draw()
+                ball.draw()
+                window.score.draw()
+                for (var i = 0; i < blocks.length; i++) {
+                    if (blocks[i].alive) {
+                        blocks[i].draw()
+                    }
+                }
+            }
+    }
     window.addEventListener("keyup", function (event) {
         if (event.key == "a") {
             game.keyDowns['a'] = false
@@ -145,9 +162,9 @@ var __main = function(){
             }, true);
         }
         var handleOrientationEvent = function(frontToBack, leftToRight, rotateDegrees) {
-            if(leftToRight < -10){
+            if(leftToRight < -5){
                 game.keyDowns['a'] = true
-            }else if(leftToRight > 10){
+            }else if(leftToRight > 5){
                 game.keyDowns['d'] = true
             }else{
                 game.keyDowns['a'] = false
